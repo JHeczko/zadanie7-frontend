@@ -21,6 +21,12 @@ function validateNumericId(id: number): number {
     return id;
 }
 
+function sanitizePathId(id: number): string {
+    const validatedId = validateNumericId(id);
+
+    return encodeURIComponent(String(validatedId));
+}
+
 function validateQuantity(quantity: number | undefined): number | undefined {
     if (quantity === undefined) {
         return undefined
@@ -41,7 +47,7 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export async function getProductById(id: number): Promise<Product> {
-    const safeId = validateNumericId(id);
+    const safeId = sanitizePathId(id);
 
     const res = await api.get<Product>(`/products/${safeId}`);
     return res.data;
@@ -59,13 +65,13 @@ export async function getCategories(): Promise<Category[]> {
 // ===== BASKET =====
 
 export async function getBasket(userID: number): Promise<Basket[]> {
-    const safeId = validateNumericId(userID);
+    const safeId = sanitizePathId(userID);
     const res = await api.get<Basket[]>(`/cart/${safeId}`);
     return res.data;
 }
 
 export async function addToBasket(product: Product, userID: number, quantity?: number): Promise<number> {
-    const safeId = validateNumericId(userID);
+    const safeId = sanitizePathId(userID);
     const safeQuantity = validateQuantity(quantity);
 
     const res = await api.post(`/cart/${safeId}`, null, {
@@ -79,7 +85,7 @@ export async function addToBasket(product: Product, userID: number, quantity?: n
 }
 
 export async function updateBasket(product: Product, userID: number, quantity: number): Promise<[Basket, number]> {
-    const safeId = validateNumericId(userID);
+    const safeId = sanitizePathId(userID);
     const safeQuantity = validateQuantity(quantity);
     
     const res = await api.patch(`/cart/${safeId}`, null, {
@@ -92,7 +98,7 @@ export async function updateBasket(product: Product, userID: number, quantity: n
 }
 
 export async function deleteBasket(product: Product, userID: number): Promise<number> {
-    const safeId = validateNumericId(userID);
+    const safeId = sanitizePathId(userID);
     const res = await api.delete(`/cart/${safeId}`, {
         params: {
             prod_id: product.id
@@ -103,7 +109,7 @@ export async function deleteBasket(product: Product, userID: number): Promise<nu
 }
 
 export async function clearBasket(userID: number): Promise<number> {
-    const safeId = validateNumericId(userID);
+    const safeId = sanitizePathId(userID);
     const res = await api.delete(`/cart/${safeId}`);
     return res.status;
 }
@@ -112,7 +118,7 @@ export async function clearBasket(userID: number): Promise<number> {
 // ===== PAYMENTS =====
 
 export async function addPayment(userID: number): Promise<[Payments, number]> {
-    const safeId = validateNumericId(userID);
+    const safeId = sanitizePathId(userID);
     const res = await api.post(`/payments/${safeId}`);
     return [res.data, res.status];
 }
