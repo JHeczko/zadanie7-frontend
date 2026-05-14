@@ -9,7 +9,6 @@ import {Toaster} from "react-hot-toast";
 
 function App() {
     const [products, setProducts] = useState<Product[]>([]);
-    //const [categories, setCategories] = useState<Category[]>([]);
     const [basket, setBasket] = useState<Basket[]>([]);
 
 
@@ -32,8 +31,6 @@ function App() {
             />                <Router
                 products={products}
                 setProducts={setProducts}
-                // categories={categories}
-                // setCategories={setCategories}
                 basket={basket}
                 setBasket={setBasket}
             />
