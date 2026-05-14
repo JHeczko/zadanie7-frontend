@@ -85,7 +85,10 @@ export async function addToBasket(product: Product, userID: number, quantity?: n
 }
 
 export async function updateBasket(product: Product, userID: number, quantity: number): Promise<[Basket, number]> {
-    const safeId = sanitizePathId(userID);
+    const validUserID = Number(userID);
+    if (isNaN(validUserID)) throw new Error("Invalid User ID");
+    
+    const safeId = sanitizePathId(validUserID);
     const safeQuantity = validateQuantity(quantity);
     
     const res = await api.patch(`/cart/${safeId}`, null, {
@@ -98,7 +101,10 @@ export async function updateBasket(product: Product, userID: number, quantity: n
 }
 
 export async function deleteBasket(product: Product, userID: number): Promise<number> {
-    const safeId = sanitizePathId(userID);
+    const validUserID = Number(userID);
+    if (isNaN(validUserID)) throw new Error("Invalid User ID");
+    
+    const safeId = sanitizePathId(validUserID);
     const res = await api.delete(`/cart/${safeId}`, {
         params: {
             prod_id: product.id
