@@ -14,32 +14,30 @@ function App() {
 
 
     return (
-        <>
-            <BrowserRouter>
-                <PageHeader/>
-                <Toaster
-                    position="top-right"
-                    reverseOrder={false}
-                    gutter={6}
-                    toastOptions={{
-                        duration: 1500,
-                        style: {
-                            maxWidth: '30rem',
-                            maxLines: 6,
-                            fontSize: '14px',
-                            padding: '10px 14px',
-                        },
-                    }}
-                />                <Router
-                    products={products}
-                    setProducts={setProducts}
-                    categories={categories}
-                    setCategories={setCategories}
-                    basket={basket}
-                    setBasket={setBasket}
-                />
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <PageHeader/>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+                gutter={6}
+                toastOptions={{
+                    duration: 1500,
+                    style: {
+                        maxWidth: '30rem',
+                        maxLines: 6,
+                        fontSize: '14px',
+                        padding: '10px 14px',
+                    },
+                }}
+            />                <Router
+                products={products}
+                setProducts={setProducts}
+                categories={categories}
+                setCategories={setCategories}
+                basket={basket}
+                setBasket={setBasket}
+            />
+        </BrowserRouter>
     )
 }
 

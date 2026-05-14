@@ -51,6 +51,12 @@
 }
 
 .add-to-cart-btn {
+    /* Reset stylów natywnego buttona */
+    border: none;
+    outline: none;
+    font-family: inherit;
+    
+    /* Twoje style */
     background-color: #9333ea; 
     color: white;
     padding: 10px 25px;
@@ -58,6 +64,11 @@
     cursor: pointer;
     font-weight: bold;
     transition: background 0.2s, transform 0.2s;
+    
+    /* Wyśrodkowanie tekstu wewnątrz buttona */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .add-to-cart-btn:hover {
@@ -67,6 +78,11 @@
 
 .add-to-cart-btn:active {
     transform: translateY(1px);
+}
+
+.add-to-cart-btn:focus-visible {
+    outline: 2px solid #a855f7;
+    outline-offset: 2px;
 }
 
 .category {
