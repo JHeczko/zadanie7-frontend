@@ -59,7 +59,7 @@ function CartPage({basket, setBasket}: CartPageProps) {
                     setBasket([])
                 }
                 toast.success(`Payment was successful.`)
-                console.log("Payment was successfully", data)
+                console.log("Payment was successfully")
             }
         }catch(error) {
             console.error("Error while finalizing payment: ", error)
