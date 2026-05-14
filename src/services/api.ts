@@ -86,7 +86,7 @@ export async function addToBasket(product: Product, userID: number, quantity?: n
 
 export async function updateBasket(product: Product, userID: number, quantity: number): Promise<[Basket, number]> {
     const validUserID = Number(userID);
-    if (isNaN(validUserID)) throw new Error("Invalid User ID");
+    if (Number.isNaN(validUserID)) throw new Error("Invalid User ID");
     
     const safeId = sanitizePathId(validUserID);
     const safeQuantity = validateQuantity(quantity);
@@ -102,7 +102,7 @@ export async function updateBasket(product: Product, userID: number, quantity: n
 
 export async function deleteBasket(product: Product, userID: number): Promise<number> {
     const validUserID = Number(userID);
-    if (isNaN(validUserID)) throw new Error("Invalid User ID");
+    if (Number.isNaN(validUserID)) throw new Error("Invalid User ID");
     
     const safeId = sanitizePathId(validUserID);
     const res = await api.delete(`/cart/${safeId}`, {

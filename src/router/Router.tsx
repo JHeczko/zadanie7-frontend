@@ -17,7 +17,7 @@ interface RouterProps {
     //setPayments: React.Dispatch<React.SetStateAction<Payments[]>>;
 }
 
-function Router({products, setProducts, categories, setCategories, basket, setBasket}: RouterProps) {
+function Router({products, setProducts, categories, setCategories, basket, setBasket}: Readonly<RouterProps>) {
     return (
         <Routes>
             <Route path="/" element={<MainPage />}/>
