@@ -10,7 +10,8 @@
 }
 
 .empty-cart-message {
-    color: #888;
+    /* Zmieniono z #888 na #6b6b6b - teraz spełnia normę 4.5:1 na białym tle */
+    color: #6b6b6b;
     text-align: center;
     margin-top: 2rem;
 }
@@ -46,7 +47,8 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    border: 1px solid #ccc;
+    /* Przyciemniono obramowanie z #ccc na #949494 dla lepszej widoczności elementów UI */
+    border: 1px solid #949494;
     border-radius: 4px;
     background: #f5f5f5;
     cursor: pointer;
@@ -55,6 +57,7 @@
     padding: 0;
     line-height: 1;
     transition: background 0.15s;
+    color: #333;
 }
 
 .quantity-control-button:hover {
@@ -62,7 +65,7 @@
 }
 
 .quantity-control-button:focus-visible {
-    outline: 2px solid #4a90e2;
+    outline: 2px solid #2563eb;
     outline-offset: 2px;
 }
 
@@ -76,7 +79,8 @@
     border-radius: 4px;
     background: transparent;
     cursor: pointer;
-    color: #e53935;
+    /* Zmieniono z #e53935 na #d32f2f - głębsza czerwień spełniająca wymogi kontrastu */
+    color: #d32f2f;
     padding: 0;
     transition: background 0.15s;
 }
@@ -86,7 +90,7 @@
 }
 
 .delete-button:focus-visible {
-    outline: 2px solid #e53935;
+    outline: 2px solid #d32f2f;
     outline-offset: 2px;
 }
 
@@ -94,7 +98,7 @@
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.75rem 2rem;
-    background: #4a90e2;
+    background: #1d65c1;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -105,10 +109,10 @@
 }
 
 .checkout-button:hover {
-    background: #357abd;
+    background: #164e96;
 }
 
 .checkout-button:focus-visible {
-    outline: 2px solid #357abd;
+    outline: 2px solid #164e96;
     outline-offset: 2px;
 }
