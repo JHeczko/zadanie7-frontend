@@ -1,134 +1,114 @@
-/* --- OGÓLNY UKŁAD STRONY --- */
 .cart-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    padding: 2rem;
 }
 
 .cart-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    width: 90%;
-    gap: 1.7rem;
-    margin: 0.5rem 1.7rem 1.7rem 1.7rem;
-    padding: 1.7rem;
-    border: 3px dashed #ddd;
-}
-
-/* --- KARTA PRODUKTU --- */
-.cart-item {
-    background-color: #eee;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.item-upper,
+.empty-cart-message {
+    color: #888;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #fff;
+}
+
+.item-upper {
+    margin-bottom: 0.5rem;
+}
+
 .item-lower {
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center; /* Zmienione na center dla lepszego wyrównania */
+    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
 }
 
-/* --- KONTROLKA ILOŚCI I INPUT --- */
 .control-quantity {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    width: auto;
+    gap: 0.5rem;
 }
 
-.quantity-input {
-    width: 3.5rem;
-    height: 2.5rem;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: white;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #333;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.quantity-input:focus {
-    border-color: #c084fc;
-    box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.2);
-}
-
-/* Ukrywanie strzałek w input type="number" */
-.quantity-input::-webkit-outer-spin-button,
-.quantity-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.quantity-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-/* --- PRZYCISKI (WSPÓLNE STYLE) --- */
-.quantity-control-button,
-.delete-button,
-.checkout-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.checkout-button {
-    background-color: #c084fc;
-    width: 60%;
-    border-radius: 30px;
-    margin-bottom: 1.7rem;
-}
-
-/* Specyficzne kolory tła */
 .quantity-control-button {
-    background-color: #c084fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    transition: background 0.15s;
+}
+
+.quantity-control-button:hover {
+    background: #e0e0e0;
+}
+
+.quantity-control-button:focus-visible {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
 }
 
 .delete-button {
-    background-color: #fd4545;
-}
-
-/* Wspólny efekt po najechaniu */
-.quantity-control-button:hover,
-.checkout-button:hover{
-    transform: translateY(-3px);
-    background-color: #a855f7; /* Oba zmieniają się na ten sam fiolet */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: #e53935;
+    padding: 0;
+    transition: background 0.15s;
 }
 
 .delete-button:hover {
-    transform: translateY(-3px);
-    background-color: #dd0000; /* Oba zmieniają się na ten sam fiolet */
+    background: #fdecea;
 }
 
-.quantity-control-button:active, .delete-button:active, .checkout-button:active {
-    transform: translateY(1px);
+.delete-button:focus-visible {
+    outline: 2px solid #e53935;
+    outline-offset: 2px;
 }
 
+.checkout-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.checkout-button:hover {
+    background: #357abd;
+}
+
+.checkout-button:focus-visible {
+    outline: 2px solid #357abd;
+    outline-offset: 2px;
+}
