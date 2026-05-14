@@ -3,13 +3,13 @@ import Router from './router/Router.tsx'
 import PageHeader from "./components/PageHeader.tsx";
 import {BrowserRouter} from "react-router-dom";
 import {useState} from "react";
-import type {Basket, Category, Product} from "./interfaces/definitions.ts";
+import type {Basket, Product} from "./interfaces/definitions.ts";
 import {Toaster} from "react-hot-toast";
 
 
 function App() {
     const [products, setProducts] = useState<Product[]>([]);
-    const [categories, setCategories] = useState<Category[]>([]);
+    //const [categories, setCategories] = useState<Category[]>([]);
     const [basket, setBasket] = useState<Basket[]>([]);
 
 
@@ -32,8 +32,8 @@ function App() {
             />                <Router
                 products={products}
                 setProducts={setProducts}
-                categories={categories}
-                setCategories={setCategories}
+                // categories={categories}
+                // setCategories={setCategories}
                 basket={basket}
                 setBasket={setBasket}
             />
